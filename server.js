@@ -3,7 +3,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const items = require('./routes/api/items');
+const pBackLog = require('./routes/api/pBackLog');
+const sBackLog = require('./routes/api/sBackLog');
+const item = require('./routes/api/items');
+
+
 
 const app = express();
 
@@ -20,7 +24,10 @@ mongoose
   .catch(err => console.log(err));
 
 // Use Routes
-app.use('/api/items', items);
+app.use('/api/pBackLog', pBackLog);
+app.use('/api/sBackLog', sBackLog);
+app.use('/api/items', item);
+
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {

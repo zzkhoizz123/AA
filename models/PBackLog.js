@@ -12,7 +12,7 @@ const PBackLogSchema = new Schema({
     required: true
   },
   status:{
-      type: int,
+      type: Number,
       required: true
   },
   startDate:{
@@ -22,24 +22,11 @@ const PBackLogSchema = new Schema({
   endDate:{
     type: Date
   },
-  items:[{
-      name: {
-          type: String,
-          required: true
-      },
-      description:{
-          type: String,
-          required: true
-      },
-      status:{
-          type: Integer,
-          required: true
-      },
-      owner: {
-          type: String,
-          required: true
-      }
-  }]
+  items:[
+    {
+        type: Object
+    }
+  ]
 });
 
 module.exports = PBackLog = mongoose.model('pbacklog', PBackLogSchema);

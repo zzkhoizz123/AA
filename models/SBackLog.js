@@ -12,7 +12,7 @@ const SBackLogSchema = new Schema({
     required: true
   },
   status:{
-      type: Integer,
+      type: Number,
       required: true
   },
   startDate:{
@@ -22,24 +22,11 @@ const SBackLogSchema = new Schema({
   endDate:{
     type: Date
   },
-  items:[{
-      name: {
-          type: String,
-          required: true
-      },
-      description:{
-          type: String,
-          required: true
-      },
-      status:{
-          type: int, // 0 1 2 3 
-          required: true
-      },
-      owner: {
-          type: String,
-          required: true
-      }
-  }]
+  items:[
+    {
+        type: Object
+    }
+  ]
 });
 
 module.exports = SBackLog = mongoose.model('sbacklog', SBackLogSchema);
